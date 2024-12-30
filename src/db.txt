@@ -1,0 +1,60 @@
+Users
+    ID
+    Email
+    Password
+
+Theaters
+    ID
+    Name
+    Address
+    City
+    State
+    ZipCode
+    PhoneNum
+    OpenTime
+    CloseTime
+    Standard
+    Imax
+    ScreenX
+    Dolby
+
+Screens
+    ID
+    Theater - fk
+    Number
+    Format
+
+Movies
+    ID
+    Title
+    Runtime
+    Rating
+    ReleaseDate
+    Poster
+    Trailer
+    NowPlaying
+
+Showtimes
+    ID
+    Theater - fk
+    Movie - fk
+    Format
+    Date 
+    Time
+    Price
+    Screen - fk
+
+Seats
+    ID
+    Showtime - fk
+    Name
+    Active
+    Accessibily
+
+Purchases
+    ID/ConfirmationNum
+    Theater - fk
+    User - fk
+    
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiNDUwYjViM2QtMDI0Ni00ZTYxLWIxOWQtNWU4NTk2MTJmY2NmIiwidGVuYW50X2lkIjoiMzMwODk0YjdkODIyMWJlYmE0N2QxMDRlYzgxZGNjYzU5MzUxZDJkMjE0YTdhOTA0YzkyOGVkMzQ1OWZlZTA4YSIsImludGVybmFsX3NlY3JldCI6Ijk1NTc3NGU4LTExNDYtNDZjNS04OGY4LTc2NjM0ZTYzNjNhOCJ9.sDqgzymxzSoULCB0TE8_3HTWSt5ucyWrpX-GJSHcGUY"
+DIRECT_URL="<YOUR_DATABASE_CONNECTION_STRING>"
