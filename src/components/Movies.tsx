@@ -276,7 +276,7 @@ const Movies = () => {
         }),
       }
 
-      const response = await fetch("http://localhost:4000/graphql", options)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}`, options)
       const result = await response.json()
       return result.data.nowPlayingMovies;
     } catch (error) {
@@ -310,7 +310,7 @@ const Movies = () => {
         }),
       }
 
-      const response = await fetch("http://localhost:4000/graphql", options)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}`, options)
       const result = await response.json()
       return result.data.comingSoonMovies;
     } catch (error) {
@@ -344,7 +344,7 @@ const Movies = () => {
         }),
       }
 
-      const response = await fetch("http://localhost:4000/graphql", options)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}`, options)
       const result = await response.json()
       return result.data.limitedReleaseMovies;
     } catch (error) {

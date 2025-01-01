@@ -27,7 +27,7 @@ const Locations = () => {
     //useStates
     const [theaters, setTheaters] = useState<theater[]>([])
     const [filteredTheaters, setFilteredTheaters] = useState<theater[]>([])
-    const [theaterStates, setTheaterStates] = useState<string[]>([])
+    const [, setTheaterStates] = useState<string[]>([])
     const [filteredTheaterStates, setFilteredTheaterStates] = useState<string[]>([])
     const [expandedStates, setExpandedStates] = useState<string[]>([])
     const [searchQuery, setSearchQuery] = useState("")
@@ -98,7 +98,7 @@ const Locations = () => {
           })
       }
 
-      const response = await fetch("http://localhost:4000/graphql", options)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}`, options)
       const results = await response.json()
       return results.data.theaters
     }

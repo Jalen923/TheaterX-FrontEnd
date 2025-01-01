@@ -22,7 +22,6 @@ type NowPlayingProps = {
 
 
 const NowPlayingMovie = ({nowPlayingItem, index, activeNowPlayingIndex, nowPlayingItemWidth }: NowPlayingProps) => {
-  console.log(nowPlayingItem)
   return (
     <div style={{width: nowPlayingItemWidth}} className={`now-playing-item ${activeNowPlayingIndex === index ? 'now-playing-item-active' : 'now-playing-item-inactive'}`}>
         <img className='now-playing-poster' src={nowPlayingItem.poster} />

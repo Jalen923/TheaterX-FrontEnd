@@ -246,7 +246,7 @@ const MovieShowtime = () => {
         }),
       }
   
-      const response = await fetch("http://localhost:4000/graphql", options)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}`, options)
       const results = await response.json()
       let newShowtimes = results.data.showtimesByMovie;
 
@@ -474,7 +474,7 @@ const MovieShowtime = () => {
       }),
     };
 
-    const response = await fetch("http://localhost:4000/graphql", options)
+    const response = await fetch(`${import.meta.env.VITE_API_URL}`, options)
     const results = await response.json()
     setTicketConfirmationNumber(results.data.createTicket.id)
     setTicketConfirmationEmail(results.data.createTicket.email)

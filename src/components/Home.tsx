@@ -103,7 +103,7 @@ const Home = () => {
           })
       }
 
-      const response = await fetch("http://localhost:4000/graphql", options)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}`, options)
       const results = await response.json()
       return results.data.homeHeroItems
     }
@@ -134,7 +134,7 @@ const Home = () => {
         }),
       }
 
-      const response = await fetch("http://localhost:4000/graphql", options)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}`, options)
       const result = await response.json()
       return result.data.nowPlayingMovies;
     } catch (error) {
