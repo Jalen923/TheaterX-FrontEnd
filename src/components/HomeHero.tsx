@@ -72,7 +72,7 @@ const HomeHero = ({ homeHeroItems, nowPlayingMovies }: HomeHeroProps) => {
 
 
     return (
-        <Swipe onSwipeRight={handleHeroCarouselBtnClickLeft} onSwipeLeft={handleHeroCarouselBtnClickRight}>
+        <Swipe onSwipeRight={handleHeroCarouselBtnClickLeft} onSwipeLeft={handleHeroCarouselBtnClickRight} tolerance={25}>
           <div className='hero-carousel-container'>
             <ul className='hero-carousel-items' style={{left: `-${heroCarouselIndex}00%`, width: `${homeHeroItems.length}00%`}}>
               {

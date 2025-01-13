@@ -78,8 +78,8 @@ const SignUpModal = () => {
         <button className='modal-close-btn' onClick={closeSignUpModal}>X</button>
             <form action="" className='modal-form'>
                 <h1 className='modal-title'>Sign Up</h1>
-                <input style={validEmail ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="email" id='email' className='checkout-text-input' placeholder='Email' ref={signUpEmailRef}/>
-                <input style={validPassword ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="password" id='password' className='checkout-text-input' placeholder='Password' ref={signUpPasswordRef}/>
+                <input style={validEmail ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="email" id='signupemail' className='checkout-text-input' placeholder='Email' ref={signUpEmailRef}/>
+                <input style={validPassword ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="signuppassword" id='password' className='checkout-text-input' placeholder='Password' ref={signUpPasswordRef}/>
                 <input style={validTel ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="tel" id='tel' className='checkout-text-input' placeholder='Phone Number (XXX-XXX-XXXX)' ref={signUpTelRef}/>
                 {/* <div className='signup-comms-container'>
                     <input type="checkbox" id='checkbox' ref={commsRef}/>

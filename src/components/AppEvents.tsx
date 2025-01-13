@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import Swipe from "react-easy-swipe"
 import { Link } from "react-router-dom"
 
 const AppEvents = () => {
@@ -130,8 +131,8 @@ const AppEvents = () => {
                       <img className='android-img' src='https://theaterx.s3.us-east-2.amazonaws.com/img/apple.png'></img>
                       <div className='app-perks-container'>
                         {
-                         appFeatures.map((app) => 
-                             <h2 className="app-perk">{app.text}</h2>
+                         appFeatures.map((app, index) => 
+                             <h2 key={index} className="app-perk">{app.text}</h2>
                          )
                         }
                        <img className='iphone' src="https://theaterx.s3.us-east-2.amazonaws.com/img/iphone.png" alt="" />
@@ -142,7 +143,9 @@ const AppEvents = () => {
                 </div>
                 <div className='events-container'>
                   <h1 className='app-title'>Special Screenings And Events</h1>
+                  <Swipe style={{display: "flex", justifyContent: "center", alignItems: "center"}} tolerance={5}>
                   <div className='events-carousel-container'>
+
                     <ul className='events-carousel-items' style={{top: `-${eventsCarouselIndex}00%`, height: `${events.filter((event) => !event.specialEvent).length}00%`}}>
                       {
                         events.filter((event) => !event.specialEvent).map((item, index) => 
@@ -170,18 +173,19 @@ const AppEvents = () => {
                     <div className='event-carousel-navigation-container'>
                       <button className='event-carousel-navigation-btn' onClick={handleEventsCarouselBtnClickTop}>{'^'}</button>
                       {
-                      events.filter((event) => !event.specialEvent).map((_, index) => 
-                          <button
-                            key={index}
-                            className={`event-carousel-navigation-item ${index === eventsCarouselIndex && 'event-carousel-navigation-item-active'}`} 
-                            onClick={() => setEventsCarouselIndex(index)}
+                          events.filter((event) => !event.specialEvent).map((_, index) => 
+                            <button
+                          key={index}
+                          className={`event-carousel-navigation-item ${index === eventsCarouselIndex && 'event-carousel-navigation-item-active'}`} 
+                          onClick={() => setEventsCarouselIndex(index)}
                           >
                           </button>
                         )
-                      }
+                    }
                       <button className='event-carousel-navigation-btn bottom-btn' onClick={handleEventsCarouselBtnClickBottom}>{'^'}</button>
                     </div>
                   </div>
+                    </Swipe>
                 </div>
             </div>
         </div>

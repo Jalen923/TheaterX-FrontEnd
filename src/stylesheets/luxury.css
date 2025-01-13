@@ -47,6 +47,7 @@
     cursor: pointer;
     background-color: var(--primary);
     transition: background-color 0.3s;
+    color: black;
 }
 .luxury-hero-btn:hover {
     background-color: var(--secondary);
@@ -178,6 +179,9 @@
     }
     .luxury-modal-image {
         height: 65%;
+    }
+    .luxury-hero-btn {
+        color: black;
     }
 }
 

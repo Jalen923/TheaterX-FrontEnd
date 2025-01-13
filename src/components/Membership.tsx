@@ -43,8 +43,8 @@ const Membership = () => {
         <div className='membership-container'>
             <div className='membership-perks-container'>
                 {
-                    membershipPerks.slice(0, 4).map((membershipPerk) => 
-                        <h1 className='membership-perk'>{membershipPerk.text}</h1>
+                    membershipPerks.slice(0, 4).map((membershipPerk, index) => 
+                        <h1 key={index} className='membership-perk'>{membershipPerk.text}</h1>
                     )
                 }
             </div>
@@ -55,8 +55,8 @@ const Membership = () => {
             </div>
             <div className='membership-perks-container'>
                 {
-                    membershipPerks.slice(4, 8).map((membershipPerk) => 
-                        <h1 className='membership-perk'>{membershipPerk.text}</h1>
+                    membershipPerks.slice(4, 8).map((membershipPerk, index) => 
+                        <h1 key={index} className='membership-perk'>{membershipPerk.text}</h1>
                     )
                 }
             </div>

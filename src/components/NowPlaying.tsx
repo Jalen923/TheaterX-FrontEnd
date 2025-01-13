@@ -20,8 +20,6 @@ type NowPlayingProps = {
 }
 
 const NowPlaying = ({ nowPlayingMovies }: NowPlayingProps) => {
-  console.log(nowPlayingMovies)
-  
   //States
   const [isInitialRender, setIsInitialRender] = useState(true); // Flag to track first render
   const [nowPlayingCarouselIndex, setNowPlayingCarouselIndex] = useState(0)
@@ -96,29 +94,29 @@ const NowPlaying = ({ nowPlayingMovies }: NowPlayingProps) => {
   }
 
   return (
-    <Swipe onSwipeRight={handleNowPlayingBtnClickLeft} onSwipeLeft={handleNowPlayingBtnClickRight}>
       <div className='now-playing-container' style={{backgroundImage: `url(${nowPlayingMovies.length > 0 ? nowPlayingMovies[activeNowPlayingIndex].poster : ""})`}}>
         <div className='now-playing-header-container'>
           <h1 className='now-playing-title'>Now Playing</h1>
         </div>
-        <div className='now-playing-carousel-container'>
-          <div className='now-playing-items' ref={nowPlayingCarouselRef} onTransitionEnd={(e) => resetNowPlayingCarousel(e)} style={{transform: `translateX(${transformValue}px)`}}>
-            {
-              nowPlayingMovies.map((item, index) => 
-                <NowPlayingMovie key={index} nowPlayingItem={item} index={index} activeNowPlayingIndex={activeNowPlayingIndex} nowPlayingItemWidth={NOW_PLAYING_ITEM_WIDTH} setActiveNowPlayingIndex={setActiveNowPlayingIndex} setNowPlayingCarouselIndex2={setNowPlayingCarouselIndex} nowPlayingCarouselIndex={nowPlayingCarouselIndex}></NowPlayingMovie>
-              )
-            }
-            {
-              nowPlayingMovies.map((item, index) => 
-                <NowPlayingMovie key={index} nowPlayingItem={item} index={index} activeNowPlayingIndex={activeNowPlayingIndex} nowPlayingItemWidth={NOW_PLAYING_ITEM_WIDTH} setActiveNowPlayingIndex={setActiveNowPlayingIndex} setNowPlayingCarouselIndex2={setNowPlayingCarouselIndex} nowPlayingCarouselIndex={nowPlayingCarouselIndex}></NowPlayingMovie>
-              )
-            }
+        <Swipe onSwipeRight={handleNowPlayingBtnClickLeft} onSwipeLeft={handleNowPlayingBtnClickRight} tolerance={25}>
+          <div className='now-playing-carousel-container'>
+            <div className='now-playing-items' ref={nowPlayingCarouselRef} onTransitionEnd={(e) => resetNowPlayingCarousel(e)} style={{transform: `translateX(${transformValue}px)`}}>
+              {
+                nowPlayingMovies.map((item, index) => 
+                  <NowPlayingMovie key={index} nowPlayingItem={item} index={index} activeNowPlayingIndex={activeNowPlayingIndex} nowPlayingItemWidth={NOW_PLAYING_ITEM_WIDTH} setActiveNowPlayingIndex={setActiveNowPlayingIndex} setNowPlayingCarouselIndex2={setNowPlayingCarouselIndex} nowPlayingCarouselIndex={nowPlayingCarouselIndex}></NowPlayingMovie>
+                )
+              }
+              {
+                nowPlayingMovies.map((item, index) => 
+                  <NowPlayingMovie key={index} nowPlayingItem={item} index={index} activeNowPlayingIndex={activeNowPlayingIndex} nowPlayingItemWidth={NOW_PLAYING_ITEM_WIDTH} setActiveNowPlayingIndex={setActiveNowPlayingIndex} setNowPlayingCarouselIndex2={setNowPlayingCarouselIndex} nowPlayingCarouselIndex={nowPlayingCarouselIndex}></NowPlayingMovie>
+                )
+              }
+            </div>
           </div>
-        </div>
+        </Swipe>
         <button className='now-playing-nav-btn' id='now-playing-nav-btn-left' onClick={useThrottle(handleNowPlayingBtnClickLeft, 500)}>{'<'}</button>
         <button className='now-playing-nav-btn' id='now-playing-nav-btn-right' onClick={useThrottle(handleNowPlayingBtnClickRight, 500)}>{'>'}</button>
       </div>
-    </Swipe>
   )
 }
 

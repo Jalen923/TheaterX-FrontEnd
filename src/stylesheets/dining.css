@@ -47,6 +47,7 @@
     cursor: pointer;
     background-color: var(--primary);
     transition: background-color 0.3s;
+    color: black;
 }
 .dining-hero-btn:hover {
     background-color: var(--secondary);
@@ -149,6 +150,9 @@
     transition: all 0.5s ease-in-out;
 
 }
+.menu-item.front label {
+    overflow-y: hidden;
+}
 .back {
     opacity: 0;
     padding: 0;
@@ -223,12 +227,53 @@
     padding: 3rem;
     background-color: rgb(20,20,20);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
     transition: all 0.5s;
 }
 
 /* Media Queries */
+@media only screen and (max-width: 1375px) { 
+    /* Dining */
+    .menu-container {
+        height: calc(125vh - 63px);
+    }
+}
+@media only screen and (max-width: 1264px) { 
+    /* Dining */
+    .menu-container-mobile {
+        height: calc(125vh - 63px);
+        display: flex;
+    }
+    .menu-container {
+        display: none;
+    }
+    .menu-item-title {
+        font-size: 1.1rem;
+    }
+    .menu-item-desc {
+        font-size: 0.85rem;
+    }
+    .menu-item-price, .menu-item-cal {
+        font-size: 0.8rem;
+    }
+    .menu-title-container-mobile h1 {
+        z-index: 1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        font-size: 1.5rem;
+    }
+    .dining-features-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        height: 100%;
+        column-gap: 2rem;
+        padding: 1rem;
+    }
+    .dining-hero-btn {
+        color: black;
+    }
+}
 @media only screen and (max-width: 1050px) { 
     /* Dining */
     .menu-container-mobile {
@@ -258,6 +303,9 @@
         height: 100%;
         column-gap: 2rem;
         padding: 1rem;
+    }
+    .dining-hero-btn {
+        color: black;
     }
 }
 @media only screen and (max-width: 768px) {

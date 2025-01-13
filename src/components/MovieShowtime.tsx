@@ -114,7 +114,7 @@ const MovieShowtime = () => {
   
   //constants
   const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-  const showtimeDays = (eachDayOfInterval({start: new Date(), end: addDays(new Date(), 9)}))
+  const showtimeDays = (eachDayOfInterval({start: new Date(), end: addDays(new Date(), 7)}))
   
   let { state } = useLocation();
   const currentMovie: Movie = state.currentMovie
@@ -520,7 +520,7 @@ const MovieShowtime = () => {
   }
 
   return (
-    <div style={{height: '100vh', backgroundColor: "rgb(20,20,20)"}}>
+    <div style={{height: 'min(100dvh, 100vh)', backgroundColor: "rgb(20,20,20)"}}>
         <Navbar></Navbar>
         <TicketConfirmationModal ticketConfirmationNumber={ticketConfirmationNumber} ticketConfirmationEmail={ticketConfirmationEmail}></TicketConfirmationModal>
         <main>

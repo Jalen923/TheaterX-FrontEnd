@@ -11,15 +11,16 @@
     font-family: 'Helvetica';
     box-sizing: border-box;
     overflow-x: hidden;
-    /* font-size: 16px; */
+    overscroll-behavior: none; /* Prevents overscrolling */
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 a {
     text-decoration: none;
 }
 .home-container {
-    /* position: relative; */
-    height: 100vh;
-
+    height: 100vh; /* Fallback for older browsers */
+    height: min(100dvh, 100vh); /* Use the smaller of 100dvh and 100vh */
 }
 .home-container.hidden {
     opacity: 0;
@@ -432,10 +433,12 @@ a {
 }
 .membership-title {
     font-size: 2rem;
+    overflow-y: hidden;
 }
 .membership-subtitle {
     font-size: 1.3rem;
     font-weight: normal;
+    overflow-y: hidden;
 }
 .membership-perks-container {
     display: grid;
@@ -448,6 +451,7 @@ a {
     font-weight: lighter;
     text-align: center;
     padding: 1rem 0rem;
+    overflow-y: hidden;
 }
 
 .membership-btn {
@@ -499,9 +503,9 @@ a {
 }
 .iphone {
     position: absolute;
-    height: 100%;
-    max-height: 550px;
-    width: 280px;
+    height: 480px;
+    width: 270px;
+    overflow-y: hidden;
 }
 .app-perks-container {
     position: relative;
@@ -514,7 +518,9 @@ a {
     height: 100%;
     z-index: 2;
     padding: 2rem;
-    width: 280px;
+    width: 270px;
+    overflow-y: hidden;
+
 }
 .app-perk{
     font-size: 0.9rem;
@@ -561,8 +567,8 @@ a {
     align-items: center;
 }
 .events-carousel-container {
-    height: 85%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     border-radius: 30px;
     position: relative;
@@ -653,7 +659,7 @@ a {
     z-index: 2;
     width: fit-content;
     position: absolute;
-    top: 35%;
+    top: 30%;
     left: 1rem;
 }
 .event-carousel-navigation-item {
@@ -676,9 +682,10 @@ a {
     border: 0;
     background-color: transparent;
     font-size: 25px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
     transition: color 0.3s;
+    overflow: hidden;
 }
 .event-carousel-navigation-btn:hover {
     color: white;
@@ -751,8 +758,9 @@ a {
 
 /* Showtimes */
 .showtime-container {
-    height: calc(100vh - 63px);
+    height: min(calc(100dvh - 63px), calc(100vh - 63px));
     display: flex;
+    overflow-y: hidden;
 }
 .current-movie-container {
     width: 35%;
@@ -838,10 +846,11 @@ a {
 }
 .showtime-select-container {
     width: 65%;
-    height: calc(100%);
+    height: 100%;
     background-color: rgb(20, 20, 20);
     padding: 2rem;
-    overflow: hidden;
+    overflow-y: hidden;
+    /* background-color: #ae3fff; */
 }
 .date-select-container {
     display: flex;
@@ -923,6 +932,7 @@ a {
 }
 .theater-info-modal.inactive {
     opacity: 0;
+    z-index: -1;
 }
 .theater-info-modal-text {
     font-size: 0.8rem;
@@ -1235,6 +1245,40 @@ input[type="radio"] {
 }
 
 /* Media Queries */
+@media only screen and (max-height: 800px) {
+    .iphone {
+        height: 400px;
+        width: 215px;
+    }
+    .app-perks-container {
+        gap: 1rem;
+        padding: 1.5rem;
+        width: 200px;
+    }
+    .app-perk{
+        font-size: 0.7rem;
+    }
+    .event-carousel-navigation-container {
+        height: 150px;
+        top: 35%;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .iphone {
+        height: 350px;
+        width: 200px;
+    }
+    .app-perks-container {
+        padding: 1rem;
+        gap: 1rem;
+        width: 200px;
+    }
+    .app-perk{
+        font-size: 0.6rem;
+    }
+}
+
 @media only screen and (max-width: 1520px) {
     .seat-select-container {
         padding: 2rem;
@@ -1262,6 +1306,27 @@ input[type="radio"] {
     }
 }
 
+@media only screen and (max-width: 1264px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-sub-title {
+        font-size: 1.1rem;
+    }
+    .testimonial-text {
+        font-size: 1.3rem;
+    }
+    .feature-box-title {
+        font-size: 1.3rem;
+    }
+    .event-title {
+        font-size: 1.3rem;
+    }
+    .event-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
 @media only screen and (max-width: 1050px) {
     /* Hero */
     .hero-content-container {
@@ -1277,7 +1342,6 @@ input[type="radio"] {
 
     /* Now Playing */
     .now-playing-container {
-        padding: 1rem;
         height: fit-content;
         padding: 1.5rem;
     }
@@ -1294,8 +1358,6 @@ input[type="radio"] {
         font-size: 0.8rem
     }
     .now-playing-poster {
-        width: 70%;
-        height: 65%;
         margin-bottom: 1rem;
     }
     .now-playing-name {
@@ -1337,12 +1399,6 @@ input[type="radio"] {
         font-size: 1.4rem;
         margin-bottom: 1rem;
     }
-    .app-perks-container {
-        gap: 2rem;
-    }
-    .app-perk {
-        font-size: 0.85rem;
-    }
     .app-img-container {
         margin-top: 4rem;
     }
@@ -1373,7 +1429,7 @@ input[type="radio"] {
     /* Showtimes */
     .showtime-container {
         flex-direction: column;
-        height: auto;
+        /* height: auto; */
     }
     .current-movie-container {
         display: grid;
@@ -1384,6 +1440,8 @@ input[type="radio"] {
         position: fixed;
         top: 57px;
         justify-items: center;
+        overflow: hidden;
+        z-index: 1;
     }
     .current-movie-item-details {
         text-align: center;
@@ -1491,8 +1549,6 @@ input[type="radio"] {
         font-size: 0.8rem
     }
     .now-playing-poster {
-        width: 70%;
-        height: 65%;
         margin-bottom: 1rem;
     }
     .now-playing-name {
@@ -1622,12 +1678,10 @@ input[type="radio"] {
     }
     .hero-carousel-btn {
         padding: 0.8rem 1rem;
+        color: black;
     }
 
     /* Now Playing */
-    .now-playing-container {
-        padding: 1.2rem;
-    }
     .now-playing-title {
         font-size: 1.7rem;
     }
@@ -1645,8 +1699,6 @@ input[type="radio"] {
         font-size: 0.7rem
     }
     .now-playing-poster {
-        width: 85%;
-        height: 70%;
         margin-bottom: 1rem;
     }
     .now-playing-name {
@@ -1654,6 +1706,7 @@ input[type="radio"] {
     }
     .now-playing-btn {
         padding: 0.8rem 1.3rem;
+        color: black;
     }
     .now-playing-nav-btn {
         width: 35px;
@@ -1735,7 +1788,7 @@ input[type="radio"] {
         width: 100%;
     }
     .events-carousel-container {
-        height: 85%;
+        height: 95%;
         width: 95%;
     }
     .event-title {
@@ -1890,9 +1943,6 @@ input[type="radio"] {
     }
 
     /* Now Playing */
-    .now-playing-container {
-        padding: 1.2rem;
-    }
     .now-playing-title {
         font-size: 1.7rem;
     }
@@ -1910,8 +1960,6 @@ input[type="radio"] {
         font-size: 0.7rem
     }
     .now-playing-poster {
-        width: 65%;
-        height: 50%;
         margin-bottom: 1rem;
     }
     .now-playing-name {

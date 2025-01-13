@@ -54,8 +54,8 @@ const LogInModal = () => {
         <button className='modal-close-btn' onClick={closeLogInModal}>X</button>
             <form className='modal-form'>
                 <h1 className='modal-title'>Login</h1>
-                <input style={validEmail ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="email" id='email' className='checkout-text-input' placeholder='Email' ref={loginEmailRef}/>
-                <input style={validPassword ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="password" id='email' className='checkout-text-input' placeholder='Password' ref={loginPasswordRef}/>
+                <input style={validEmail ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="email" id='loginemail' className='checkout-text-input' placeholder='Email' ref={loginEmailRef}/>
+                <input style={validPassword ? {borderBottom: "1px solid rgba(255, 255, 255, 0.2)"} : {borderBottom: "1px solid red"}} type="password" id='loginpassword' className='checkout-text-input' placeholder='Password' ref={loginPasswordRef}/>
                 <button className='nav-item nav-btn nav-btn-login modal-btn' onClick={(e) => handleLogin(e)}>Login</button>
             </form>
       </div>

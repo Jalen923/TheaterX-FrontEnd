@@ -47,6 +47,7 @@
     cursor: pointer;
     background-color: var(--primary);
     transition: background-color 0.3s;
+    color: black;
 }
 .locations-hero-btn:hover {
     background-color: var(--secondary);
@@ -57,6 +58,7 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    overflow-y: hidden;
 }
 .locations-search-input {
     width: 100%;
@@ -196,6 +198,9 @@
     }
     .locations-search-input {
         font-size: 1.2rem;
+    }
+    .locations-hero-btn {
+        color: black;
     }
 }
 
